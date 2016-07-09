@@ -1,0 +1,22 @@
+void setup()
+{
+Serial.begin(9600);
+pinMode(10, INPUT);
+pinMode(13, OUTPUT);    
+}
+void loop()
+{
+int value = analogRead(A0);
+Serial.println(value); //lectura analógica
+delay(100);
+
+int limit = 350;
+
+if(value > limit){
+  Serial.println("Cargar agua");
+  digitalWrite(13, HIGH);  
+}else{
+  Serial.println("Me moje");
+  digitalWrite(13, LOW);
+}
+}
